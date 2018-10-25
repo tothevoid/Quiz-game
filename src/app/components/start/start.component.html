@@ -1,25 +1,8 @@
 <div id="deviceready" class="main-container">
-    <img  id="photo" class="photo">
-    <button class="photo-btn btn" onclick="getPicture()">Сделать фото</button>
-    <button id="play-btn" style="display:none" class="play-btn btn" >Начать</button>
-  </div>
-  
-  <script type="text/javascript">
-    function getPicture(){
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL
-    });
-    }
-   
-    function onSuccess(imageData) {
-        var image = document.getElementById('photo');
-        var btn = document.getElementById('play-btn');
-        image.style.display = 'block';
-        btn.style.display = 'block';
-        image.src = "data:image/jpeg;base64," + imageData;
-    }
-  
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
-</script>
+    <div class="photo">
+        <img [src]="imagePath" id="photo">
+        <button (click)="takePicture()" class="add-btn">+</button>
+    </div>
+    <input class="name" type="text" placeholder="Введите имя"/>
+    <button [routerLink]="['../categories']" class="btn">Продолжить</button>
+</div>

@@ -10,7 +10,8 @@ declare var device;
 export class AppComponent implements OnInit {
   ngOnInit() { 
     document.addEventListener("deviceready", function() { 
-      alert(device.platform); 
+      console.log('loaded')
+      console.log(device.platform); 
     }, false); 
   } 
   

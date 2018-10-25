@@ -1,6 +1,12 @@
-<H1 class="categories-title">Выберите категорию</H1>
-<div *ngFor="let category of Categories" class="categories">
-    <img class='category' src='{{category.href}}'/>
+<div class="wrapper">
+    <div class="header">
+        <a routerLink="/start" routerLinkActive="active" class="back">&lt;</a>
+        Играть одному
+    </div>
+    <div *ngFor="let category of Categories" class="categories">
+        <div class='category'>
+            <img src='{{category.img}}'/>
+            <span class="title">{{category.name}}</span>
+        </div>
+    </div>
 </div>
-
-

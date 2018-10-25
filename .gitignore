@@ -3,11 +3,11 @@
 /tmp
 /out-tsc
 
-
 # cordova
-/res
-/plugins
-/platforms
+cordova/platforms
+cordova/www
+cordova/plugins
+cordova/node_modules
 
 # dependencies
 /node_modules
@@ -33,6 +33,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-
 # Server
 server/node_modules
+server/config

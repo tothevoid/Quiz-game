@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js && Start-Process \"chrome.exe\" \"http://localhost:8000\""
   },
   "author": "",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.41.0",
+    "sequelize-auto-migrations": "^1.0.2",
+    "sequelize-cli": "^5.2.0"
   }
 }

@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { StartComponent } from './components/start/start.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 @NgModule({
   declarations:[
     AppComponent,
     StartComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    QuestionsComponent
   ],
   imports: [
     FormsModule,

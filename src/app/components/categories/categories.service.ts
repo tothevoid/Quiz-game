@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core' 
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 export interface Category {
     name: string;
-    href: string;
+    img: string;
   }
   
 @Injectable()

@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+
+html{
+    -webkit-touch-callout: none;               
+    -webkit-text-size-adjust: none;             
+    -webkit-user-select: none;     
+}
+body{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
