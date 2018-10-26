@@ -3,9 +3,9 @@ const app = express();
 
 var models = require("./models")
 
-app.listen(8000, () => {
+app.listen(8000, '0.0.0.0', () => {
     console.log('Server started!');
-  });
+});
 
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -24,7 +24,12 @@ app.route('/api/get_categories').get((req, res) => {
 
 app.route('/api/get_questions').get((req,res) => {
     console.log('New request: '+req.route);
-    models.question.findAll({attributes: ['text','correct_answer','incorrect1','incorrect2','incorrect3'], raw:true}).then(function (questions) {
+    models.question.findAll({
+        attributes: ['text','correct_answer','incorrect1','incorrect2','incorrect3'],
+        raw:true,
+        order: models.Sequelize.literal('RAND()'),
+        limit: 5 
+    }).then(function (questions) {
         console.log(questions)
         res.send(questions)
     }); 

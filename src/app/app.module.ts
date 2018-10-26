@@ -9,13 +9,15 @@ import { AppComponent } from './components/app/app.component';
 import { StartComponent } from './components/start/start.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { QuestionsComponent } from './components/questions/questions.component';
+import {ResultComponent} from './components/result/result.component'
 
 @NgModule({
   declarations:[
     AppComponent,
     StartComponent,
     CategoriesComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    ResultComponent
   ],
   imports: [
     FormsModule,
