@@ -9,7 +9,9 @@ import { AppComponent } from './components/app/app.component';
 import { StartComponent } from './components/start/start.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { QuestionsComponent } from './components/questions/questions.component';
-import {ResultComponent} from './components/result/result.component'
+import { ResultComponent } from './components/result/result.component'
+import { MenuComponent } from './components/main-menu/main-menu.component'
+import { LeaderboardsComponent } from './components/leaderboards/leaderboards.component'
 
 @NgModule({
   declarations:[
@@ -17,7 +19,9 @@ import {ResultComponent} from './components/result/result.component'
     StartComponent,
     CategoriesComponent,
     QuestionsComponent,
-    ResultComponent
+    ResultComponent,
+    MenuComponent,
+    LeaderboardsComponent
   ],
   imports: [
     FormsModule,

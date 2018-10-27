@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Russo+One');
 @import url('https://fonts.googleapis.com/css?family=Marmelad');
 
+$main-clr: #007780;
+$sec-clr: white;
+$font: 'Marmelad', sans-serif;
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);  
+}
+
 html{
     -webkit-touch-callout: none;               
     -webkit-text-size-adjust: none;             
@@ -12,3 +20,24 @@ body{
     padding: 0;
 }
 
+.btn{
+    background: $sec-clr;
+    font-family: $font;
+    font-size: 20px;
+    border-radius: 10px;
+    height: 55px;
+    color:$main-clr;
+    border: 3px solid $main-clr;
+    font-weight: 600;
+    &:hover, &:focus, &:active{
+        outline: none
+    }
+}
+
+.text-center{
+    position: relative;
+    font-family: $font;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%); 
+}

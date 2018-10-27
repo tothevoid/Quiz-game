@@ -3,13 +3,12 @@
         <a routerLink="/start" routerLinkActive="active" class="back">&lt;</a>
         Играть одному
     </div>
-    <a [routerLink]="['../questions']">
-        <div *ngFor="let category of Categories" class="categories">
+    <div class="categories">
+        <a *ngFor="let category of Categories" [routerLink]="['/questions',category.id]">
             <div class='category'>
                 <img src='{{category.img}}'/>
                 <span class="title">{{category.name}}</span>
             </div>
-        </div>
-    </a>
-    
+        </a>
+    </div>   
 </div>

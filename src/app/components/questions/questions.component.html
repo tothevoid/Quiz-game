@@ -1,17 +1,12 @@
 <div class="wrapper">
-    <div class="back"></div>
-   
-    <div class="content">
-        <div class="answering-stats">
-                <div class="{{QuestionStatus[q.status]}} stat" *ngFor="let q of Questions"></div>
-        </div>
-        <div class="question"><div class="text">{{currentQuestion.text}}</div></div>
-        <div class="answers">
-            <button (click)="answer($event)" class="answer">{{currentQuestion.correct_answer}}</button>
-            <button (click)="answer($event)" class="answer">{{currentQuestion.incorrect1}}</button>
-            <button (click)="answer($event)" class="answer">{{currentQuestion.incorrect2}}</button>
-            <button (click)="answer($event)" class="answer">{{currentQuestion.incorrect3}}</button>
-        </div>
+    <div class="answering-stats">
+        <div class="{{QuestionStatus[q.status]}} stat" *ngFor="let q of Questions"></div>
     </div>
-    
+    <div class="question"><div class="text-center">{{currentQuestion.text}}</div></div>
+    <div class="answers">
+        <button (click)="answer($event)" class="answer">{{currentQuestion.correct_answer}}</button>
+        <button (click)="answer($event)" class="answer">{{currentQuestion.incorrect1}}</button>
+        <button (click)="answer($event)" class="answer">{{currentQuestion.incorrect2}}</button>
+        <button (click)="answer($event)" class="answer">{{currentQuestion.incorrect3}}</button>
+    </div>
 </div>

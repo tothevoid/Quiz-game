@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core' 
 import {HttpClient} from '@angular/common/http';
-
+import { environment } from '../../../environments/environment';
 export class Question {
     text: String;
     correct_answer: String;
@@ -17,13 +17,13 @@ export enum QuestionStatus {
 }
 
 @Injectable()
-export class QuestionsService {
+export class QuestionsService{
     constructor(private http: HttpClient) { }
 
-    url: string = "http://192.168.100.8:8000/api/get_questions";
+    url: string = environment.apiUrl + "get_questions/";
 
-    getQuestions(){
-        return this.http.get<Question[]>(this.url);
+    getQuestions(id: Number){
+        return this.http.get<Question[]>(this.url+id);
     };
 
 }

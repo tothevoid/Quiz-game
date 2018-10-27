@@ -22,9 +22,13 @@ app.route('/api/get_categories').get((req, res) => {
     });   
 });
 
-app.route('/api/get_questions').get((req,res) => {
+app.route('/api/get_questions/:category').get((req,res) => {
+    var category = req.params.category;
     console.log('New request: '+req.route);
     models.question.findAll({
+        where:{
+            category: category
+        },
         attributes: ['text','correct_answer','incorrect1','incorrect2','incorrect3'],
         raw:true,
         order: models.Sequelize.literal('RAND()'),

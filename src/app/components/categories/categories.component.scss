@@ -1,20 +1,20 @@
+$main-clr: #007780;
 $text-clr: #00B2CE;
 $back-clr: white;
 $font-size: 25px;
 $category-radius: 0;
-$distance-header: 10px;
 
 .wrapper{
-    background: $back-clr;
-    padding-top: $distance-header;
     .header{
-        margin-bottom: $distance-header;
+        padding-top: 2.5vh;
+        padding-bottom: 2.5vh;
         width: 100%;
         color: $text-clr;
         font-size: $font-size;
         text-align: center;
         font-weight: 600;
         position: relative;
+        height: 5vh;
         .back{
             text-decoration: none;
             position: absolute;
@@ -31,26 +31,24 @@ $distance-header: 10px;
         align-content: center;
         justify-content: center;
         .category{
-            border-top: 3px solid $text-clr;
-            border-bottom: 3px solid $text-clr;
             border-radius: $category-radius;
             width: 100%;
             height: 30vh;
-            margin-top: 2%;
-            margin-bottom: 2%;
             position: relative;
             .title{
+                background: black;
+                opacity: .7;
                 position: absolute;
                 color: white;
                 top: 45%;
-                left: 10px;
+                left: 0;
+                padding: 0 10px;
                 font-size: $font-size;
             }
             img{
                 border-radius: $category-radius;
                 width: 100%;
                 height: 100%;
-                filter: grayscale(100%)
             }
         }
     }

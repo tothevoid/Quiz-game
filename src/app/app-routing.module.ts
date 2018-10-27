@@ -5,14 +5,17 @@ import { StartComponent } from './components/start/start.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { ResultComponent } from './components/result/result.component'
-import { from } from 'rxjs';
+import { MenuComponent } from './components/main-menu/main-menu.component'
+import { LeaderboardsComponent } from './components/leaderboards/leaderboards.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full'},
   { path: 'start', component: StartComponent },
+  { path: 'main-menu', component: MenuComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'questions', component: QuestionsComponent },
+  { path: 'questions/:category', component: QuestionsComponent },
   { path: 'result', component: ResultComponent },
+  { path: 'leaderboards', component: LeaderboardsComponent },
   { path: '**', redirectTo: 'start' }
 ];
 

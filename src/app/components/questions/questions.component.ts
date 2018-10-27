@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { QuestionsService, Question, QuestionStatus } from './questions.service';
 import { Router } from '@angular/router'
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'questions',
@@ -16,16 +17,22 @@ export class QuestionsComponent implements OnInit {
     public currentQuestion: Question = new Question();
     private correct: number = 0;
 
+    id: number = 0;
+    private sub: any;
+
     QuestionStatus = QuestionStatus;
 
-    constructor(private service: QuestionsService, private router: Router) {
+    constructor(private service: QuestionsService, private router: Router, private route:ActivatedRoute) {
         this.Service = service
     }
 
     ngOnInit() { 
-        this.Service.getQuestions().subscribe(questions=>{
+        this.sub = this.route.params.subscribe(params =>{
+            this.id = +params['category']
+        })
+
+        this.Service.getQuestions(this.id).subscribe(questions=>{
             this.Questions = questions as Question[];
-            console.log(this.Questions)
             if (questions.length == 0){
                 console.log('empty response')
             }
@@ -45,7 +52,6 @@ export class QuestionsComponent implements OnInit {
         }
         if (this.Questions.length == this.currentQuestionNum+1){
             var result = this.correct+'/'+this.Questions.length
-            console.log(result);
             localStorage.setItem('result',result);
             this.router.navigate(['result'])
         }
