@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { QuestionsService, Question, QuestionStatus } from './questions.service';
 import { Router } from '@angular/router'
-import {ActivatedRoute} from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'questions',

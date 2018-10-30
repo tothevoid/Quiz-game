@@ -8,5 +8,7 @@ import { Component, Inject } from '@angular/core';
 
 
 export class MenuComponent{
-
+    constructor(){
+        localStorage.clear();
+    }
 }

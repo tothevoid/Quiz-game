@@ -1,8 +1,13 @@
-<div id="deviceready" class="main-container">
-    <div class="photo">
-        <img [src]="imagePath" id="photo">
-        <button (click)="takePicture()" class="add-btn">+</button>
+<form (ngSubmit)="onSubmit()">
+    <div id="deviceready" class="main-container">
+        <div class="photo">
+            <img [src]="data.imagePath" name="path" id="photo">
+            <button type="button" (click)="takePicture()" class="add-btn">+</button>
+        </div>
+        <input required name="name" pattern="[A-Za-zА-Яа-я0-9]{4,}" class="name" [(ngModel)]="data.name" type="text" placeholder="Введите имя"/>
+        <div class="requirements">Имя должно быть не меньше 4 букв или цифр</div>
+        <button type="submit" class="btn btn-start">Продолжить</button>
     </div>
-    <input class="name" type="text" placeholder="Введите имя"/>
-    <button [routerLink]="['../main-menu']" class="btn btn-start">Продолжить</button>
-</div>
+</form>
+
+    

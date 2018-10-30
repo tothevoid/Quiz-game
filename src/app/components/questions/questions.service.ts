@@ -20,7 +20,7 @@ export enum QuestionStatus {
 export class QuestionsService{
     constructor(private http: HttpClient) { }
 
-    url: string = environment.apiUrl + "get_questions/";
+    url: string = environment.apiUrl + "api/get_questions/";
 
     getQuestions(id: Number){
         return this.http.get<Question[]>(this.url+id);

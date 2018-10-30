@@ -10,13 +10,15 @@ import { LeaderboardsComponent } from './components/leaderboards/leaderboards.co
 
 const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full'},
-  { path: 'start', component: StartComponent },
+  { path: 'start',  component: (() => {
+    return localStorage.getItem('id')!=null ? MenuComponent : StartComponent;
+  })()},
   { path: 'main-menu', component: MenuComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'questions/:category', component: QuestionsComponent },
   { path: 'result', component: ResultComponent },
   { path: 'leaderboards', component: LeaderboardsComponent },
-  { path: '**', redirectTo: 'start' }
+  { path: '**', redirectTo: 'start' },
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ export interface Category {
 export class CategoriesService {
     constructor(private http: HttpClient) { }
 
-    url: string = environment.apiUrl + "get_categories/";
+    url: string = environment.apiUrl + "api/get_categories/";
 
     getAllCategories(){
         return this.http.get<Category[]>(this.url);

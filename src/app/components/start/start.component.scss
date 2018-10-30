@@ -58,13 +58,13 @@ html{
         }
     }
     .btn-start{
+        visibility: hidden;
+        margin-top: 20%;
         width: $elements-width;
-        margin-top: 5px;
         margin-bottom: 5px;
     }
     .name{
         margin-top: 20%;
-        margin-bottom: 20%;
         font-family: $font;
         width: $elements-width;
         border: 0px;
@@ -82,3 +82,33 @@ html{
     };
 }
 
+input[type="text"]{
+    &:invalid:not(:placeholder-shown) {
+        border-bottom: solid 5px red;
+    }
+    &:invalid:focus{
+        border-bottom: solid 5px red;
+        & ~ .requirements {
+            max-height: 200px;
+            padding: 0 30px 20px 30px;
+        }
+    }
+    &:valid{
+       
+        & ~ .btn-start{
+            visibility: visible;
+        }
+    }
+} 
+
+.requirements {
+    text-align: center;
+    width: 100%;
+    color: #999;
+    max-height: 0;
+    transition: 0.28s;
+    overflow: hidden;
+    font: $font;
+    color: red;
+    font-style: italic;
+}
