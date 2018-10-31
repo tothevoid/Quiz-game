@@ -68,3 +68,13 @@ app.post('/api/create_user/', bodyParser.json(), (req, res) => {
     })
 })
 
+app.route('/api/get_users').get((req,res) => {
+    models.user.findAll({
+        attributes: ['name','img','games_count','correct_answers'],
+        raw:true,
+        limit: 10 
+    }).then(function (questions) {
+        console.log(questions)
+        res.send(questions)
+    }); 
+})

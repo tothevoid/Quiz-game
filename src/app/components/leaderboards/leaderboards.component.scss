@@ -1,0 +1,37 @@
+.wrapper{
+    .user{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        height: 9vh;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        margin-top: 2.5vh;
+        margin-bottom: 2.5vh;
+        .place{
+            width: 15%;
+            text-align: left;
+        }
+        .avatar{
+            width: 20%;
+            margin-left: 5%;
+            margin-right: 5%;
+            border-radius: 50%;
+            height: 100%;
+            img{
+                width: 100%;
+                border-radius: 50%;
+                height: 100%;
+            }
+        }
+        .nick{
+            width: 20%;
+        }
+        .games{
+            width: 15%;
+            text-align: right;
+        }
+        
+    }
+}

@@ -11,7 +11,7 @@ export class ResultComponent implements OnInit {
     public result: String
 
     ngOnInit() { 
-      this.result = localStorage.getItem('result')
+      this.result = sessionStorage.getItem('result')
     };
 
    

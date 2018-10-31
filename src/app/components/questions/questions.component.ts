@@ -52,7 +52,7 @@ export class QuestionsComponent implements OnInit {
         }
         if (this.Questions.length == this.currentQuestionNum+1){
             var result = this.correct+'/'+this.Questions.length
-            localStorage.setItem('result',result);
+            sessionStorage.setItem('result',result);
             this.router.navigate(['result'])
         }
         else{
