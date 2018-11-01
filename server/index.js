@@ -34,13 +34,13 @@ app.route('/api/get_questions/:category').get((req,res) => {
         where:{
             category: category
         },
-        attributes: ['text','correct_answer','incorrect1','incorrect2','incorrect3'],
-        raw:true,
+        attributes: ['id','text','category'],
+        include: [ { model: models.answer} ],
         order: models.Sequelize.literal('RAND()'),
         limit: 5 
-    }).then(function (questions) {
-        console.log(questions)
-        res.send(questions)
+        }).then(function (sensors) {
+        const data = sensors.map((node) => node.get({ plain: true }));
+        res.send(data)
     }); 
 })
 

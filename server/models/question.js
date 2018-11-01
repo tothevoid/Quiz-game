@@ -6,25 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     id: {
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
     },
     text: {
-        allowNull: false,
-        type: DataTypes.STRING,
-    }, 
-    correct_answer: {
-        allowNull: false,
-        type: DataTypes.STRING,
-    },
-    incorrect1: {
-        allowNull: false,
-        type: DataTypes.STRING,
-    },
-    incorrect2: {
-        allowNull: false,
-        type: DataTypes.STRING,
-    },
-    incorrect3: {
         allowNull: false,
         type: DataTypes.STRING,
     }
@@ -37,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   question.associate = function(models) {
     question.hasOne(models.category, { as: "category" }); 
+    question.hasMany(models.answer); 
   };
   return question;
 };

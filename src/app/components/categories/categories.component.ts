@@ -24,10 +24,6 @@ export class CategoriesComponent implements OnInit {
     this.Service.getAllCategories().subscribe(categories=>{
       this.Categories = categories as Category[];     
     })
-
-    document.addEventListener("deviceready", function() { 
-      alert(device.platform); 
-    }, false); 
   };
   
 }

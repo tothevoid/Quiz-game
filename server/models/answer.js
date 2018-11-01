@@ -1,21 +1,24 @@
-'use strict';
-var name = "category"
+var name = 'answer'
 
 module.exports = (sequelize, DataTypes) => {
-  const category = sequelize.define(name, {
+  const answer = sequelize.define(name, {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: DataTypes.INTEGER,
       autoIncrement: true,
+      type: DataTypes.INTEGER,
     },
     name:{
       allowNull: false,
       type: DataTypes.STRING,
     },
-    img:{
+    correct:{
       allowNull: false,
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
+    },
+    question_id:{
+      allowNull: false,
+      type: DataTypes.INTEGER,
     }
   }, {
     freezeTableName: true,
@@ -24,8 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: false,
     underscored: true,
   });
-  category.associate = function(models) {
-    
+  answer.associate = function(models) {
+    answer.belongsTo(models.question);
   };
-  return category;
+  return answer;
 };

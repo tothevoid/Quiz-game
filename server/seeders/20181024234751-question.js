@@ -6,30 +6,18 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(name, [
       {
-        id: uuidv4(),
-        text: "Select number",
-        correct_answer: "four",
-        incorrect1: "one",
-        incorrect2: "two",
-        incorrect3: "three",
+        id: 1,
+        text: "Select number 3",
         category: "1"
       },
       {
-        id: uuidv4(),
-        text: "Select number",
-        correct_answer: "six",
-        incorrect1: "seven",
-        incorrect2: "eight",
-        incorrect3: "nine",
+        id: 2,
+        text: "Select number 4",
         category: "2"
       },
       {
-        id: uuidv4(),
-        text: "Select number",
-        correct_answer: "1",
-        incorrect1: "0",
-        incorrect2: "0",
-        incorrect3: "0",
+        id: 3,
+        text: "Select number 5",
         category: "3"
       }
     ], {});

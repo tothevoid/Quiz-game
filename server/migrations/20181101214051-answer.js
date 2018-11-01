@@ -1,5 +1,5 @@
 'use strict';
-var name = 'question'
+var name = 'answer'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -7,22 +7,27 @@ module.exports = {
     id: {
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
       type: Sequelize.INTEGER,
-      autoIncrement: true
     },
-    text: {
-      allowNull: false,
-      type: Sequelize.STRING,
+    name: {
+      type: Sequelize.INTEGER,
+      allowNull: false
     },
-    category: {
+    correct: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false
+    },
+    question_id: {
       type: Sequelize.INTEGER,
       references: {
-          model: 'category',
+          model: 'question',
           key: 'id', 
       },
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL',
     }
+
   }, 
   {
     freezeTableName: true,
