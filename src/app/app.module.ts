@@ -12,6 +12,7 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { ResultComponent } from './components/result/result.component'
 import { MenuComponent } from './components/main-menu/main-menu.component'
 import { LeaderboardsComponent } from './components/leaderboards/leaderboards.component'
+import { GamesComponent } from './components/online-games/online-games.component'
 
 @NgModule({
   declarations:[
@@ -21,7 +22,8 @@ import { LeaderboardsComponent } from './components/leaderboards/leaderboards.co
     QuestionsComponent,
     ResultComponent,
     MenuComponent,
-    LeaderboardsComponent
+    LeaderboardsComponent,
+    GamesComponent
   ],
   imports: [
     FormsModule,
