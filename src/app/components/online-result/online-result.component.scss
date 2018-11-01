@@ -1,0 +1,54 @@
+$main-clr: #007780;
+$second-clr: #04DCFF;
+$third-clr: white;
+$font: 'Marmelad', sans-serif;
+
+$container-width: 80%;
+
+.wrapper{
+    padding: 0 (100-$container-width)/2;
+    width: $container-width;
+    .result{
+        font-size: 30px;
+        margin: 10vh 0;
+        width: 100%;
+        height: 45vh;
+        text-align: center;
+        box-shadow: 0 0 0 5px $main-clr;
+        background: $third-clr;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .text{
+            color: $main-clr;
+            font-family: $font;
+        }
+        img{
+            width: 25%;
+            border-radius: 50%;
+        }
+    }
+    .back{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        .result-btn{
+            font-family: $font;
+            border-radius: 4px;
+            box-shadow: 0 0 0 4px $main-clr;
+            border: none;
+            background: $third-clr;   
+            height: 10vh;
+            width: 100%;
+            margin:2vh 0;
+            &:hover, &:focus, &:active{
+                outline: none
+            }
+            img{
+                height: 70%;
+            }
+        }
+    }  
+}

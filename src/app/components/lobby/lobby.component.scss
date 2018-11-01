@@ -1,0 +1,47 @@
+$font: 'Marmelad', sans-serif;
+$main-clr: #007780;
+
+.wrapper{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    .player{
+        height: 20vh;
+        width: 100%;
+        display: flex;
+        color: $main-clr;
+        font-size: 18px;
+        align-items: center;
+        .avatar{
+            margin-right: 10%;
+            width: 20%;
+            border-radius: 50%;
+        }
+        .nickname{
+            width: 40%;
+        }   
+        .status{
+            text-align: right;
+            width: 30%;
+        }
+    }
+    .leader{
+        
+    }
+    .opponent{
+
+    }
+    .btn-ready{
+        margin-top: 5vh;
+        height: 10vh;
+        width: 100%;
+    }
+    .vs{
+        display: block;
+        height: 30vh;
+        color: $main-clr;
+        font-family: $font;
+        width: 100%;
+        font-size: 120px;
+    }
+}
