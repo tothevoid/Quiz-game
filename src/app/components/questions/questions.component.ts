@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { QuestionsService, Question, QuestionStatus } from './questions.service';
+import { QuestionsService, Question, QuestionStatus, Answer } from './questions.service';
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router'
 
@@ -37,13 +37,19 @@ export class QuestionsComponent implements OnInit {
                 console.log('empty response')
             }
             else{
-                this.currentQuestion = questions[0]
+                this.setCurrentQuestion(0)
             }
         })
     };
 
+    setCurrentQuestion(index: number){
+        this.currentQuestion = this.Questions[index]
+    }
+
     answer(event: Event){
-        if (this.currentQuestion.correct_answer == event.srcElement.innerHTML){
+        var answer = this.currentQuestion.answers.filter(x=>x.correct==true)[0].name;
+
+        if (answer == event.srcElement.innerHTML){
             this.Questions[this.currentQuestionNum].status = QuestionStatus.correct;
             this.correct+=1
         }
@@ -57,8 +63,21 @@ export class QuestionsComponent implements OnInit {
         }
         else{
             this.currentQuestionNum+=1;
-            this.currentQuestion = this.Questions[this.currentQuestionNum];
+            this.setCurrentQuestion(this.currentQuestionNum)
         }
     }
+
+    shuffle(array:Answer[]) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+      
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+        return array;
+      }
 
 }

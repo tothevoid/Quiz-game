@@ -34,7 +34,7 @@ app.route('/api/get_questions/:category').get((req,res) => {
         where:{
             category: category
         },
-        attributes: ['id','text','category'],
+        attributes: ['text'],
         include: [ { model: models.answer} ],
         order: models.Sequelize.literal('RAND()'),
         limit: 5 

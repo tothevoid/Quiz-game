@@ -1,13 +1,16 @@
 import {Injectable} from '@angular/core' 
 import {HttpClient} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+
 export class Question {
     text: String;
-    correct_answer: String;
-    incorect1: String;
-    incorect2: String;
-    incorect3: String;
-    status: QuestionStatus = QuestionStatus.notAnswered;
+    answers: Answer[];
+    status: QuestionStatus
+}
+
+export interface Answer{
+    name: String;
+    correct: Boolean
 }
   
 export enum QuestionStatus {

@@ -15,10 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     correct:{
       allowNull: false,
       type: DataTypes.BOOLEAN,
-    },
-    question_id:{
-      allowNull: false,
-      type: DataTypes.INTEGER,
     }
   }, {
     freezeTableName: true,

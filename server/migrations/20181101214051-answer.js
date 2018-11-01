@@ -27,7 +27,6 @@ module.exports = {
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL',
     }
-
   }, 
   {
     freezeTableName: true,
