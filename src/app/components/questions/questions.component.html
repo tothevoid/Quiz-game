@@ -2,7 +2,10 @@
     <div class="answering-stats">
         <div class="{{QuestionStatus[question.status]}} stat" *ngFor="let question of Questions"></div>
     </div>
-    <div class="question"><div class="text-center">{{currentQuestion.text}}</div></div>
+    <div class="question">
+        <div class="text-center">{{currentQuestion.text}}</div>
+    </div>
+    <div class="time" id="time"></div>
     <div class="answers">
         <button (click)="answer($event)" class="answer" *ngFor="let ans of currentQuestion.answers">{{ans.name}}</button>
     </div>

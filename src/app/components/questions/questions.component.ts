@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { QuestionsService, Question, QuestionStatus, Answer } from './questions.service';
 import { Router } from '@angular/router'
+import { interval, Observable, Subscription} from 'rxjs';
+import { map, switchMap } from 'rxjs/operators'
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
@@ -16,7 +18,9 @@ export class QuestionsComponent implements OnInit {
     public Questions: Question[] = [];
     public currentQuestion: Question = new Question();
     private correct: number = 0;
-
+    public answerTime: number = 10;
+    public timer:Subscription;
+    
     id: number = 0;
     private sub: any;
 
@@ -31,16 +35,43 @@ export class QuestionsComponent implements OnInit {
             this.id = +params['category']
         })
 
+        
         this.Service.getQuestions(this.id).subscribe(questions=>{
             this.Questions = questions as Question[];
+            console.log(this.Questions[0].answers)
             if (questions.length == 0){
                 console.log('empty response')
             }
             else{
-                this.setCurrentQuestion(0)
+                this.setCurrentQuestion(0);
+                
+                this.timer = interval(1000).subscribe(x => {
+                    this.answerTime = this.answerTime - 1;
+                    document.getElementById('time').style.width = (this.answerTime * 10) + '%'
+                    console.log(this.answerTime)
+                    if (this.answerTime == 0){
+                        this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
+                        this.endGameCheck()
+                    }
+                })
+              
             }
         })
     };
+
+    ngOnDestroy(){
+        this.timer.unsubscribe()
+    }
+
+    updVal(num: Number){
+        this.answerTime = this.answerTime - 1
+        console.log(this.answerTime)
+        if (this.answerTime == 0){
+            this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
+            this.endGameCheck()
+        }
+        
+    }
 
     setCurrentQuestion(index: number){
         this.currentQuestion = this.Questions[index]
@@ -56,6 +87,11 @@ export class QuestionsComponent implements OnInit {
         else{
             this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
         }
+        this.endGameCheck()
+        
+    }
+
+    endGameCheck(){
         if (this.Questions.length == this.currentQuestionNum+1){
             var result = this.correct+'/'+this.Questions.length
             sessionStorage.setItem('result',result);
@@ -64,20 +100,8 @@ export class QuestionsComponent implements OnInit {
         else{
             this.currentQuestionNum+=1;
             this.setCurrentQuestion(this.currentQuestionNum)
+            this.answerTime = 10;
         }
     }
-
-    shuffle(array:Answer[]) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-        while (0 !== currentIndex) {
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex -= 1;
-      
-          temporaryValue = array[currentIndex];
-          array[currentIndex] = array[randomIndex];
-          array[randomIndex] = temporaryValue;
-        }
-        return array;
-      }
 
 }

@@ -37,7 +37,7 @@ import { OnlineResultComponent } from './components/online-result/online-result.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     { provide: 'BASE_URL', useFactory: getBaseUrl }

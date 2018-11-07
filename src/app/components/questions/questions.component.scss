@@ -19,23 +19,32 @@ $question-width: 92%;
         align-items: center;
         height: 10vh;
         .stat{
-            border: solid black .5px;
+            border: solid $main-clr 1.5px;
             border-radius: 2px;
             width: $stats-width;
             margin: 1vh $stats-space;
             height: 3vh;
         }
+        .notAnswered{
+            background-color: white;
+        }
+        .correct{
+            background-color: #23C528;
+        }
+        .incorrect{
+            background-color: #D52828;
+        }
     }
     .question{
         width: $question-width;
         margin: 0 (100-$question-width)/2;
-        height: 45vh;
+        height: 40vh;
         font-family: $font;
         color: $main-clr;
         box-shadow: 0 0 0 7.5px $main-clr;
         background: $third-clr;
         border-radius: 5px;
-        margin-bottom: 5vh;
+        margin-bottom: 2.5vh;
     }
     .answers{
         width: 100%;
@@ -57,14 +66,14 @@ $question-width: 92%;
                 outline: none
             }
         }
-        .notAnswered{
-            background-color: white;
-        }
-        .correct{
-            background-color: #23C528;
-        }
-        .incorrect{
-            background-color: #D52828;
-        }
+    }
+    .time{
+        width: 100%;
+        border-radius: 10px;
+        height: 2.5vh;
+        transition: 0.1s;
+        background: #D52828;
+        border: 2.5px $main-clr solid;
+        margin-bottom: 2.5vh;
     }
 }
