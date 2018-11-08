@@ -1,0 +1,14 @@
+'use strict';
+var name = "answer"
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.bulkInsert(name,
+    [json]
+    ,{});
+  },
+
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete(name, null, {});
+  }
+};

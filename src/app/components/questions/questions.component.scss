@@ -19,8 +19,8 @@ $question-width: 92%;
         align-items: center;
         height: 10vh;
         .stat{
-            border: solid $main-clr 1.5px;
-            border-radius: 2px;
+            box-shadow: 0 0 0px 1px $main-clr;
+            border-radius: 5px;
             width: $stats-width;
             margin: 1vh $stats-space;
             height: 3vh;
@@ -71,9 +71,21 @@ $question-width: 92%;
         width: 100%;
         border-radius: 10px;
         height: 2.5vh;
-        transition: 0.1s;
-        background: #D52828;
         border: 2.5px $main-clr solid;
         margin-bottom: 2.5vh;
+        position: relative;
+        background: transparent;
+        .time-bar{
+            top: -2.5px;
+            left: -2.5px;
+            z-index: 0;
+            position: absolute;
+            border-radius: 10px;
+            height: 100%;
+            width: 100%;
+            background: #D52828;
+            border: 2.5px $main-clr solid;
+            transition: 0.1s;
+        }
     }
 }

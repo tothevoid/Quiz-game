@@ -3,6 +3,7 @@
 ## Required
 
 * installed npm and nodejs
+* intall python (generate questions by fiiled csv)
 * npm install -g cordova
 * npm install -g sequelize-cli
 * npm install -g @angular/cli
@@ -13,10 +14,19 @@
 
 ## Run
 
-* `cd ./server`
-* `sequelize db:create`
-* `sequelize db:migrate`
-* `sequelize db:seed:all`
-* `npm start`
-* `cd ../`
+### Generate questions from csv (optional)
+
+* `current folder is a project root`
+* `npm run q-gen`
+
+### Front-end
+
+* `current folder is a project root`
 * `npm run cordova-run`
+
+### Back-end
+
+* `current folder is a project root`
+* `cd ./server`
+* `npm run deploy`
+* `npm start`
