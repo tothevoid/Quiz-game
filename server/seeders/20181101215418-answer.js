@@ -526,104 +526,484 @@ module.exports = {
     "question_id": 26
   },
   {
-    "name": "Кора деревьев",
+    "name": "Мышьяк",
     "correct": 1,
     "question_id": 27
+  },
+  {
+    "name": "Ртуть",
+    "correct": 0,
+    "question_id": 27
+  },
+  {
+    "name": "Цианистый Калий",
+    "correct": 0,
+    "question_id": 27
+  },
+  {
+    "name": "Кураре",
+    "correct": 0,
+    "question_id": 27
+  },
+  {
+    "name": "Ньютон",
+    "correct": 1,
+    "question_id": 28
+  },
+  {
+    "name": "Паскаль",
+    "correct": 0,
+    "question_id": 28
+  },
+  {
+    "name": "Ватт",
+    "correct": 0,
+    "question_id": 28
+  },
+  {
+    "name": "Вольт",
+    "correct": 0,
+    "question_id": 28
+  },
+  {
+    "name": "Люкс",
+    "correct": 1,
+    "question_id": 29
+  },
+  {
+    "name": "Люмен",
+    "correct": 0,
+    "question_id": 29
+  },
+  {
+    "name": "Кандела",
+    "correct": 0,
+    "question_id": 29
+  },
+  {
+    "name": "Фотон",
+    "correct": 0,
+    "question_id": 29
+  },
+  {
+    "name": "Кандела",
+    "correct": 1,
+    "question_id": 30
+  },
+  {
+    "name": "Люкс",
+    "correct": 0,
+    "question_id": 30
+  },
+  {
+    "name": "Люмен",
+    "correct": 0,
+    "question_id": 30
+  },
+  {
+    "name": "Фотон",
+    "correct": 0,
+    "question_id": 30
+  },
+  {
+    "name": "Статор",
+    "correct": 1,
+    "question_id": 31
+  },
+  {
+    "name": "Ротор",
+    "correct": 0,
+    "question_id": 31
+  },
+  {
+    "name": "Подшипник",
+    "correct": 0,
+    "question_id": 31
+  },
+  {
+    "name": "Катушка",
+    "correct": 0,
+    "question_id": 31
+  },
+  {
+    "name": "Торричелли",
+    "correct": 1,
+    "question_id": 32
+  },
+  {
+    "name": "Паскаль",
+    "correct": 0,
+    "question_id": 32
+  },
+  {
+    "name": "Ньютон",
+    "correct": 0,
+    "question_id": 32
+  },
+  {
+    "name": "Декарт",
+    "correct": 0,
+    "question_id": 32
+  },
+  {
+    "name": "Электрон",
+    "correct": 1,
+    "question_id": 33
+  },
+  {
+    "name": "Протон",
+    "correct": 0,
+    "question_id": 33
+  },
+  {
+    "name": "Нейтрон",
+    "correct": 0,
+    "question_id": 33
+  },
+  {
+    "name": "Кварк",
+    "correct": 0,
+    "question_id": 33
+  },
+  {
+    "name": "Скорость",
+    "correct": 1,
+    "question_id": 34
+  },
+  {
+    "name": "Расстояние",
+    "correct": 0,
+    "question_id": 34
+  },
+  {
+    "name": "Траектория",
+    "correct": 0,
+    "question_id": 34
+  },
+  {
+    "name": "Ускорение",
+    "correct": 0,
+    "question_id": 34
+  },
+  {
+    "name": "Ультразвук",
+    "correct": 1,
+    "question_id": 35
+  },
+  {
+    "name": "Низкочастотный (бас)",
+    "correct": 0,
+    "question_id": 35
+  },
+  {
+    "name": "Среднечастотный",
+    "correct": 0,
+    "question_id": 35
+  },
+  {
+    "name": "Не существует",
+    "correct": 0,
+    "question_id": 35
+  },
+  {
+    "name": "Кора деревьев",
+    "correct": 1,
+    "question_id": 36
   },
   {
     "name": "Рис",
     "correct": 0,
-    "question_id": 27
+    "question_id": 36
   },
   {
     "name": "Пшеничная мука",
     "correct": 0,
-    "question_id": 27
+    "question_id": 36
   },
   {
     "name": "Сахар",
     "correct": 0,
-    "question_id": 27
+    "question_id": 36
   },
   {
     "name": "Маринованая рыба",
     "correct": 1,
-    "question_id": 28
+    "question_id": 37
   },
   {
     "name": "Томаты",
     "correct": 0,
-    "question_id": 28
+    "question_id": 37
   },
   {
     "name": "Перец",
     "correct": 0,
-    "question_id": 28
+    "question_id": 37
   },
   {
     "name": "Свекла",
     "correct": 0,
-    "question_id": 28
+    "question_id": 37
   },
   {
     "name": "Греция",
     "correct": 1,
-    "question_id": 29
+    "question_id": 38
   },
   {
     "name": "Россия",
     "correct": 0,
-    "question_id": 29
+    "question_id": 38
   },
   {
     "name": "Италия",
     "correct": 0,
-    "question_id": 29
+    "question_id": 38
   },
   {
     "name": "Украина",
     "correct": 0,
-    "question_id": 29
+    "question_id": 38
   },
   {
     "name": "Чай",
     "correct": 1,
-    "question_id": 30
+    "question_id": 39
   },
   {
     "name": "Кофе",
     "correct": 0,
-    "question_id": 30
+    "question_id": 39
   },
   {
     "name": "Пиво",
     "correct": 0,
-    "question_id": 30
+    "question_id": 39
   },
   {
     "name": "Пепси",
     "correct": 0,
-    "question_id": 30
+    "question_id": 39
   },
   {
     "name": "3000 лет",
     "correct": 1,
-    "question_id": 31
+    "question_id": 40
   },
   {
     "name": "1 год",
     "correct": 0,
-    "question_id": 31
+    "question_id": 40
   },
   {
     "name": "6 месяцев",
     "correct": 0,
-    "question_id": 31
+    "question_id": 40
   },
   {
     "name": "3 года",
     "correct": 0,
-    "question_id": 31
+    "question_id": 40
+  },
+  {
+    "name": "Китай",
+    "correct": 1,
+    "question_id": 41
+  },
+  {
+    "name": "Индия",
+    "correct": 0,
+    "question_id": 41
+  },
+  {
+    "name": "Египет",
+    "correct": 0,
+    "question_id": 41
+  },
+  {
+    "name": "Болгария",
+    "correct": 0,
+    "question_id": 41
+  },
+  {
+    "name": "Стакане пепси",
+    "correct": 1,
+    "question_id": 42
+  },
+  {
+    "name": "Кусочке торта",
+    "correct": 0,
+    "question_id": 42
+  },
+  {
+    "name": "Стакне спрайта",
+    "correct": 0,
+    "question_id": 42
+  },
+  {
+    "name": "Стакане вина",
+    "correct": 0,
+    "question_id": 42
+  },
+  {
+    "name": "Белок",
+    "correct": 1,
+    "question_id": 43
+  },
+  {
+    "name": "Углеводы",
+    "correct": 0,
+    "question_id": 43
+  },
+  {
+    "name": "Жиры",
+    "correct": 0,
+    "question_id": 43
+  },
+  {
+    "name": "Клетчатка",
+    "correct": 0,
+    "question_id": 43
+  },
+  {
+    "name": "Болгария",
+    "correct": 1,
+    "question_id": 44
+  },
+  {
+    "name": "Испания",
+    "correct": 0,
+    "question_id": 44
+  },
+  {
+    "name": "Россия",
+    "correct": 0,
+    "question_id": 44
+  },
+  {
+    "name": "Египет",
+    "correct": 0,
+    "question_id": 44
+  },
+  {
+    "name": "Кончике языка",
+    "correct": 1,
+    "question_id": 45
+  },
+  {
+    "name": "В начале языка",
+    "correct": 0,
+    "question_id": 45
+  },
+  {
+    "name": "С левой стороны языка",
+    "correct": 0,
+    "question_id": 45
+  },
+  {
+    "name": "С правой стороны языка",
+    "correct": 0,
+    "question_id": 45
+  },
+  {
+    "name": "Белка",
+    "correct": 1,
+    "question_id": 46
+  },
+  {
+    "name": "Углеводов",
+    "correct": 0,
+    "question_id": 46
+  },
+  {
+    "name": "Соленой пищи",
+    "correct": 0,
+    "question_id": 46
+  },
+  {
+    "name": "Сладкой пищи",
+    "correct": 0,
+    "question_id": 46
+  },
+  {
+    "name": "Пицца",
+    "correct": 1,
+    "question_id": 47
+  },
+  {
+    "name": "Бургер",
+    "correct": 0,
+    "question_id": 47
+  },
+  {
+    "name": "Суши",
+    "correct": 0,
+    "question_id": 47
+  },
+  {
+    "name": "Пельмени",
+    "correct": 0,
+    "question_id": 47
+  },
+  {
+    "name": "Картофель",
+    "correct": 1,
+    "question_id": 48
+  },
+  {
+    "name": "Баклажаны",
+    "correct": 0,
+    "question_id": 48
+  },
+  {
+    "name": "Томаты",
+    "correct": 0,
+    "question_id": 48
+  },
+  {
+    "name": "Сладкий перец",
+    "correct": 0,
+    "question_id": 48
+  },
+  {
+    "name": "Пельмени",
+    "correct": 1,
+    "question_id": 49
+  },
+  {
+    "name": "Пицца",
+    "correct": 0,
+    "question_id": 49
+  },
+  {
+    "name": "Борщ",
+    "correct": 0,
+    "question_id": 49
+  },
+  {
+    "name": "Паста",
+    "correct": 0,
+    "question_id": 49
+  },
+  {
+    "name": "Грильяж",
+    "correct": 1,
+    "question_id": 50
+  },
+  {
+    "name": "Макарун",
+    "correct": 0,
+    "question_id": 50
+  },
+  {
+    "name": "Муровейник",
+    "correct": 0,
+    "question_id": 50
+  },
+  {
+    "name": "Картошка",
+    "correct": 0,
+    "question_id": 50
   }
 ]
     ,{});
