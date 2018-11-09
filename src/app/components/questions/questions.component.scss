@@ -66,6 +66,14 @@ $question-width: 92%;
                 outline: none
             }
         }
+        .answer-correct{
+            background: #23C528 !important;
+            color:white;
+        }
+        .answer-incorrect{
+            background: #D52828 !important;
+            color:white;
+        }
     }
     .time{
         width: 100%;

@@ -41,7 +41,8 @@ $bottom-btns-width: 45%;
             border-radius: 4px;
             box-shadow: 0 0 0 4px $main-clr;
             border: none;
-            background: $third-clr;   
+            // background: $third-clr;   
+            background: $main-clr;
             height: 10vh;
             &:hover, &:focus, &:active{
                 outline: none

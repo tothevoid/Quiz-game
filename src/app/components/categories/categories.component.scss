@@ -48,6 +48,7 @@ $category-radius: 0;
             img{
                 border-radius: $category-radius;
                 width: 100%;
+                filter: blur(1px);
                 height: 100%;
             }
         }

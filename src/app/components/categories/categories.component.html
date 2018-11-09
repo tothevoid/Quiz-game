@@ -6,7 +6,7 @@
     <div class="categories">
         <a *ngFor="let category of Categories" [routerLink]="['/questions',category.id]">
             <div class='category'>
-                <img src='{{category.img}}'/>
+                <img src='{{url+category.id}}.jpg'/>
                 <span class="title">{{category.name}}</span>
             </div>
         </a>

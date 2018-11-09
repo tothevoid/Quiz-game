@@ -3,12 +3,12 @@
 ## Required
 
 * installed npm and nodejs
-* intall python (generate questions by fiiled csv)
+* installed mysql
+* installed python 3.7 (generate questions by fiiled csv)
 * npm install -g cordova
 * npm install -g sequelize-cli
 * npm install -g @angular/cli
 * change apiUrl in `src/enviroments/enviroments.ts`
-* install mysql
 * [configure](http://docs.sequelizejs.com/manual/tutorial/migrations.html#configuration) db connection at `server/config/config.json`
 * npm update in [`root`, `root/cordova`, `root/server`]
 

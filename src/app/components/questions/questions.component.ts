@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { QuestionsService, Question, QuestionStatus, Answer } from './questions.service';
 import { Router } from '@angular/router'
-import { interval, Observable, Subscription} from 'rxjs';
-import { map, switchMap } from 'rxjs/operators'
+import { interval, Subscription, timer} from 'rxjs';
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
@@ -13,6 +12,7 @@ import { ActivatedRoute } from '@angular/router'
 })
 
 export class QuestionsComponent implements OnInit {
+
     public Service: QuestionsService;
     private currentQuestionNum: number = 0;
     public Questions: Question[] = [];
@@ -20,14 +20,12 @@ export class QuestionsComponent implements OnInit {
     private correct: number = 0;
     public answerTime: number = 10;
     public timer:Subscription;
-    
+    public buttonsBlock: boolean = false;
     id: number = 0;
     private sub: any;
-
     QuestionStatus = QuestionStatus;
 
     constructor(private service: QuestionsService, private router: Router, private route:ActivatedRoute) {
-        this.Service = service
     }
 
     ngOnInit() { 
@@ -35,42 +33,31 @@ export class QuestionsComponent implements OnInit {
             this.id = +params['category']
         })
 
-        
-        this.Service.getQuestions(this.id).subscribe(questions=>{
+        this.service.getQuestions(this.id).subscribe(questions=>{
             this.Questions = questions as Question[];
-            console.log(this.Questions[0].answers)
             if (questions.length == 0){
                 console.log('empty response')
             }
             else{
                 this.setCurrentQuestion(0);
-                
-                this.timer = interval(1000).subscribe(x => {
-                    this.answerTime = this.answerTime - 1;
-                    document.getElementById('time').style.width = (this.answerTime * 10) + '%'
-                    console.log(this.answerTime)
-                    if (this.answerTime == 0){
-                        this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
-                        this.endGameCheck()
-                    }
-                })
+                this.timer = interval(1000).subscribe(this.timeInterval)
               
             }
         })
     };
 
-    ngOnDestroy(){
-        this.timer.unsubscribe()
-    }
-
-    updVal(num: Number){
-        this.answerTime = this.answerTime - 1
-        console.log(this.answerTime)
+    timeInterval(x){
+        if (!this.buttonsBlock)
+            this.answerTime = this.answerTime - 1;
+        document.getElementById('time').style.width = (this.answerTime * 10) + '%'
         if (this.answerTime == 0){
             this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
             this.endGameCheck()
         }
-        
+    }
+
+    ngOnDestroy(){
+        this.timer.unsubscribe()
     }
 
     setCurrentQuestion(index: number){
@@ -78,17 +65,27 @@ export class QuestionsComponent implements OnInit {
     }
 
     answer(event: Event){
-        var answer = this.currentQuestion.answers.filter(x=>x.correct==true)[0].name;
-
-        if (answer == event.srcElement.innerHTML){
-            this.Questions[this.currentQuestionNum].status = QuestionStatus.correct;
-            this.correct+=1
-        }
+        if (this.buttonsBlock)
+            return;
         else{
-            this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
+            var answer = this.currentQuestion.answers.filter(x=>x.correct==true)[0].name;
+            if (answer == event.srcElement.innerHTML){
+                this.Questions[this.currentQuestionNum].status = QuestionStatus.correct;
+                event.srcElement.classList.add('answer-correct')
+                this.correct+=1
+            }
+            else{
+                this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
+                event.srcElement.classList.add('answer-incorrect')
+            }
+            this.buttonsBlock = true
+            console.log('new event')
+            var blocker = timer(750).subscribe(x => {
+                event.srcElement.classList.remove('answer-incorrect','answer-correct')
+                this.buttonsBlock = false
+                this.endGameCheck()
+            })
         }
-        this.endGameCheck()
-        
     }
 
     endGameCheck(){

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {CategoriesService, Category} from './categories.service'
+import { environment } from 'src/environments/environment';
 
 declare var device;
 
@@ -15,9 +16,11 @@ export class CategoriesComponent implements OnInit {
   public BaseUrl: string;
   public Categories: Category[] = [];
   public Service: CategoriesService;
+  public url: String
 
   constructor(private service: CategoriesService) {
     this.Service = service
+    this.url = environment.apiUrl
   }
 
   ngOnInit() { 
