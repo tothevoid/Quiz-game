@@ -12,10 +12,6 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { ResultComponent } from './components/result/result.component'
 import { MenuComponent } from './components/main-menu/main-menu.component'
 import { LeaderboardsComponent } from './components/leaderboards/leaderboards.component'
-import { GamesComponent } from './components/online-games/online-games.component'
-import { LobbyComponent } from './components/lobby/lobby.component';
-import { OnlineQuestionsComponent } from './components/online-qeustions/online-questions.component';
-import { OnlineResultComponent } from './components/online-result/online-result.component';
 
 @NgModule({
   declarations:[
@@ -25,11 +21,7 @@ import { OnlineResultComponent } from './components/online-result/online-result.
     QuestionsComponent,
     ResultComponent,
     MenuComponent,
-    LeaderboardsComponent,
-    GamesComponent,
-    LobbyComponent,
-    OnlineQuestionsComponent,
-    OnlineResultComponent
+    LeaderboardsComponent
   ],
   imports: [
     FormsModule,

@@ -3,12 +3,14 @@
         <a routerLink="/main-menu" routerLinkActive="active" class="back">&lt;</a>
         Рейтинг
     </div>
-    <div class="user" *ngFor="let user of users; let i = index">
-        <div class="place">{{i+1}}</div>
-        <div class="avatar">
-            <img src="{{user.img}}"/>
+    <div class="users">
+        <div class="user" *ngFor="let user of users; let i = index">
+            <div class="place">{{i+1}}</div>
+            <div class="avatar">
+                <img src="{{user.img}}"/>
+            </div>
+            <div class="nick">{{user.name}}</div>
+            <div class="games">{{user.games_count}}</div>
         </div>
-        <div class="nick">{{user.name}}</div>
-        <div class="games">{{user.games_count}}</div>
     </div>
 </div>

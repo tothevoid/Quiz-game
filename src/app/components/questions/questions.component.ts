@@ -26,13 +26,13 @@ export class QuestionsComponent implements OnInit {
     QuestionStatus = QuestionStatus;
 
     constructor(private service: QuestionsService, private router: Router, private route:ActivatedRoute) {
+        
     }
 
     ngOnInit() { 
         this.sub = this.route.params.subscribe(params =>{
             this.id = +params['category']
         })
-
         this.service.getQuestions(this.id).subscribe(questions=>{
             this.Questions = questions as Question[];
             if (questions.length == 0){
@@ -40,21 +40,18 @@ export class QuestionsComponent implements OnInit {
             }
             else{
                 this.setCurrentQuestion(0);
-                this.timer = interval(1000).subscribe(this.timeInterval)
-              
+                this.timer = interval(1000).subscribe((x)=>{
+                    if (!this.buttonsBlock)
+                        this.answerTime = this.answerTime - 1;
+                    document.getElementById('time').style.width = (this.answerTime * 10) + '%'
+                    if (this.answerTime == 0){
+                        this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
+                        this.endGameCheck()
+                    }
+                })
             }
         })
     };
-
-    timeInterval(x){
-        if (!this.buttonsBlock)
-            this.answerTime = this.answerTime - 1;
-        document.getElementById('time').style.width = (this.answerTime * 10) + '%'
-        if (this.answerTime == 0){
-            this.Questions[this.currentQuestionNum].status = QuestionStatus.incorrect;
-            this.endGameCheck()
-        }
-    }
 
     ngOnDestroy(){
         this.timer.unsubscribe()

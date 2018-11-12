@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const uuidv4 = require('uuid/v4');
 const bodyParser = require("body-parser");
-var ws = require('./ws')
 
 var models = require("./models")
 app.use(bodyParser.json({limit: '25mb'}));

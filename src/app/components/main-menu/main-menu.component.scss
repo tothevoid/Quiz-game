@@ -2,9 +2,15 @@ $font: 'Marmelad', sans-serif;
 $main-clr: #007780;
 
 .wrapper{
-    width: 80%;
+    width: 70%;
     height: 100vh;
-    margin: 0 10%;
+    margin: 0 15%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
     .btn-menu{
         height: 10vh;
         width: 100%;
@@ -14,9 +20,9 @@ $main-clr: #007780;
         } 
     }
     .logo{
-        margin-top: 10vh;
-        height: 20vh;
-        width: 100%;
-        margin-bottom: 10vh;
+        margin-top: 5vh;
+        height: 30vh;
+        // width: 100%;
+        margin-bottom: 5vh;
     }
 }

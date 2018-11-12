@@ -1,37 +1,60 @@
+@import "~src/globals.scss";
+
+$users-per-page: 6;
+$users-spacing: 5vh;
+$container-padding: 5vw;
+
+$place-size: 10%;
+$avatar-size: 20%;
+$nick-size: 30%;
+$games-size: 15%;
+
+$img-resize: 1.25;
+$img-size: (100vw - $container-padding * 2) / (100% / $avatar-size) / $img-resize;
+
 .wrapper{
-    .user{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 95%;
-        height: 9vh;
-        margin-left: 2.5%;
-        margin-right: 2.5%;
-        margin-top: 2.5vh;
-        margin-bottom: 2.5vh;
-        .place{
-            width: 15%;
-            text-align: left;
-        }
-        .avatar{
-            width: 20%;
-            margin-left: 5%;
-            margin-right: 5%;
-            border-radius: 50%;
-            height: 100%;
-            img{
-                width: 100%;
+    .header{
+        @include header()
+    }
+    .users{
+        padding: 0 $container-padding;
+        .user{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: (100vh - $header-height - ($users-per-page * $users-spacing)) / $users-per-page;
+            .place{
+                width: $place-size;
+                text-align: center;
+            }
+            .avatar{
+                width: $avatar-size;
                 border-radius: 50%;
                 height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: $img-size;
+                    height: $img-size;
+                    border-radius: 50%;
+                }
+            }
+            .nick{
+                width: $nick-size;
+                white-space: nowrap; 
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .games{
+                width: $games-size;
+                text-align: center;
             }
         }
-        .nick{
-            width: 20%;
-        }
-        .games{
-            width: 15%;
-            text-align: right;
-        }
-        
+    }
+    .users > .user:not(:first-child) {
+        margin-top: $users-spacing;
     }
 }
+

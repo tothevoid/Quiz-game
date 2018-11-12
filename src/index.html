@@ -3,7 +3,22 @@
 <head>
   <meta charset="utf-8">
   <title>AngularApp</title>
-  <base href=".">
+  <base href="/">
+  <script>
+    // routes bug workaround
+    window.addEventListener = function () {
+      EventTarget.prototype.addEventListener.apply(this, arguments);
+    };
+    window.removeEventListener = function () {
+      EventTarget.prototype.removeEventListener.apply(this, arguments);
+    };
+    document.addEventListener = function () {
+      EventTarget.prototype.addEventListener.apply(this, arguments);
+    };
+    document.removeEventListener = function () {
+      EventTarget.prototype.removeEventListener.apply(this, arguments);
+    };
+  </script>
   <script type="text/javascript" src="cordova.js"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->

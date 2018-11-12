@@ -13,6 +13,7 @@
         "e2e": "ng e2e",
         "cordova": "ng build --base-href . --output-path cordova/www",
         "cordova-run": "npm run cordova && cd cordova && cordova run browser",
+        "phonegap-run": "npm run cordova && cd cordova && phonegap serve --host 0.0.0.0",
         "q-gen": "cd question_generator && python generator.py"
     },
     "author": "Apache Cordova Team",
