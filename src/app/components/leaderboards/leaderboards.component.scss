@@ -17,7 +17,7 @@ $img-size: (100vw - $container-padding * 2) / (100% / $avatar-size) / $img-resiz
         @include header()
     }
     .users{
-        padding: 0 $container-padding;
+        @include container($container-padding);
         .user{
             display: flex;
             justify-content: space-between;

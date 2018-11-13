@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StartService, UserData } from '../start/start.service';
-import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router'
 
@@ -15,16 +14,12 @@ declare var Camera: any;
 })
 
 
-export class StartComponent implements OnInit {
+export class StartComponent{
   public data: UserData;
-
-  ngOnInit() { 
-    
-  } 
-  
+ 
   constructor(private service: StartService, private router: Router, private route:ActivatedRoute) {
     this.data = {
-      imagePath: environment.apiUrl + "default.png",
+      imagePath: "assets/avatar.svg",
       name: "",
     }
   }
@@ -47,9 +42,6 @@ export class StartComponent implements OnInit {
   }
 
   public onSubmit(){
-    if (!this.data.imagePath.startsWith('data:image')){
-      this.data.imagePath = "";
-    }
     this.service.createUser(this.data).subscribe(item=>{
       var id = item as string;
       console.log(id)

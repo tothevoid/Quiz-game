@@ -51,12 +51,14 @@ app.post('/api/create_user/', bodyParser.json(), (req, res) => {
     var username = req.body.name;
     var guid = uuidv4();
 
-    var imgLink = "images/"+guid+".jpg";
-
-    var base64Data = avatar.replace("data:image/jpeg;base64,", "");
-    require("fs").writeFile(imgLink, base64Data, 'base64', function(err) {
-      console.log(err);
-    });
+    imgLink = ''
+    if (avatar.startsWith('data:image')){
+        imgLink = "images/"+guid+".jpg";
+        var base64Data = avatar.replace("data:image/jpeg;base64,", "");
+        require("fs").writeFile(imgLink, base64Data, 'base64', function(err) {
+          console.log(err);
+        });
+    }   
 
     models.user.create({
         id: guid,
@@ -71,8 +73,7 @@ app.post('/api/create_user/', bodyParser.json(), (req, res) => {
 app.route('/api/get_users').get((req,res) => {
     models.user.findAll({
         attributes: ['name','img','games_count','correct_answers'],
-        raw:true,
-        limit: 10 
+        raw:true
     }).then(function (questions) {
         console.log(questions)
         res.send(questions)

@@ -1,29 +1,21 @@
 @import "~src/globals.scss";
 
 $img-size: 60vw;
-$elements-width: 70%;
+$input-height: 5vh;
 
-html{
-    margin: 0;
-    padding: 0;
-}
-
-.main-container {
-    height: 100vh;
-    padding: 0;
-    margin: 0;
+.wrapper{
+    @include container();
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    position: fixed;
-    width: 100%;
+    text-align: center; 
     .photo{
         height: $img-size;
         width: $img-size;
-        border-radius: $img-size/2;
-        box-shadow: 0 0 0 2px $main-clr;
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px $main-clr;
         margin: 10% 0;
+        background: $third-clr;
         position: relative;
         vertical-align: middle;
         .add-btn{
@@ -36,76 +28,78 @@ html{
             text-align: center;
             height: 25%;
             width: 25%;
-            color: white;
+            color: $third-clr;
             position: absolute;
             bottom: 0;
             right: 0;
-            border: 1px solid black;
+            box-shadow: 0 0 0 1px black;
             border-radius: 50%;
-            background: black;
+            background: $main-clr;
             opacity: .5;
             &:active, &:focus, &:hover{
                 outline: none;
             }
         }
         img{
-            width: 100%;
+            width: 75%;
             height: 100%;
             border-radius: 50%;
         }
     }
     .btn-start{
-        visibility: hidden;
         margin-top: 20%;
-        width: $elements-width;
-        margin-bottom: 5px;
+        width: 100%;
     }
     .name{
         margin-top: 20%;
-        font-family: $font;
-        width: $elements-width;
-        border: 0px;
-        color: #3A3A3A;
-        border-bottom: 5px solid $main-clr;
-        border-radius: 1px;
-        background: transparent;
-        padding-bottom:5px;
-        padding-left: 5px;
-        font-weight: 200;
-        &:focus{
-            outline: none;
-            // border-bottom: 5px solid white;
+        width: 100%;
+        position: relative;
+        input{
+            height: $input-height;
+            width: 80%;
+            border: 0px;
+            background: transparent;
+            padding-bottom:5px;
+            padding-left: 5px;
+            font-weight: 200;
+            border-bottom: 5px solid $main-clr;
+            border-radius: 1px;
+            color: #3A3A3A;
+            font-family: $font;
+            &:focus{
+                outline: none;
+            }
+        }
+        button{
+            visibility: hidden;
+            position: absolute;
+            right: 0px;
+            bottom: 10px;
+            min-height: 20px;
+            min-width: 20px;
+            width: $input-height;
+            height: $input-height;
+            border: 0;
+            border-radius: 25%;
+            background: $main-clr;
+            color: $third-clr;
+            transition: 0.5s;
         }
     };
-}
-
-input[type="text"]{
-    &:invalid:not(:placeholder-shown) {
-        border-bottom: solid 5px red;
-    }
-    &:invalid:focus{
-        border-bottom: solid 5px red;
-        & ~ .requirements {
-            max-height: 200px;
-            padding: 0 30px 20px 30px;
+    input[type="text"]{
+        &:invalid:not(:placeholder-shown) {
+            border-bottom: solid 5px $red;
         }
-    }
-    &:valid{
-       
-        & ~ .btn-start{
-            visibility: visible;
+        &:invalid:focus{
+            border-bottom: solid 5px $red;
+            & ~ button {
+                visibility: hidden;
+            }
         }
-    }
-} 
-
-.requirements {
-    text-align: center;
-    width: 100%;
-    color: #999;
-    max-height: 0;
-    transition: 0.28s;
-    overflow: hidden;
-    font: $font;
-    color: red;
-    font-style: italic;
+        &:valid{
+            & ~ button{
+                visibility: visible;
+            }
+        }
+    } 
 }

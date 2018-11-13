@@ -1,12 +1,13 @@
 <form (ngSubmit)="onSubmit()">
-    <div class="main-container">
+    <div class="wrapper">
         <div class="photo">
-            <img [src]="data.imagePath" name="path" id="photo">
+            <img [src]="data.imagePath" name="imagePath" id="photo">
             <button type="button" (click)="takePicture()" class="add-btn">+</button>
         </div>
-        <input required name="name" pattern="[A-Za-zА-Яа-я0-9]{4,}" class="name" [(ngModel)]="data.name" type="text" placeholder="Введите имя"/>
-        <!-- <div class="requirements">Имя должно быть не меньше 4 букв или цифр</div> -->
-        <button type="submit" class="btn btn-start">Продолжить</button>
+        <div class="name">
+            <input required pattern="[A-Za-zА-Яа-я0-9]{2,}"  name="nickname" autocomplete="off" [(ngModel)]="data.name" type="text" placeholder="Введите имя"/>
+            <button>></button>
+        </div>
     </div>
 </form>
 

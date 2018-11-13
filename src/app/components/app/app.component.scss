@@ -1,21 +1,11 @@
 $main-clr: #75E3FF;
 
-.back{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0.5;
-    width: 100vw;
-    height: 100vh;
-    background: url(https://cdn.discordapp.com/attachments/158637279001313281/505497168837345292/bg_op60.svg);
-    background-color: $main-clr;
-    background-size: auto 100%;
-}
 .content{
     position: relative;
     z-index: 1;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
+    background: url(https://cdn.discordapp.com/attachments/158637279001313281/505497168837345292/bg_op60.svg);
+    background-color: $main-clr;
+    background-size: auto 100%;
 }

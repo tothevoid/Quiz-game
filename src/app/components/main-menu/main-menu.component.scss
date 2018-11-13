@@ -5,8 +5,7 @@ $logo-spacing: 5vh;
 $button-height: 10vh;
 
 .wrapper{
-    width: 70%;
-    margin: 0 15%;
+    @include container();
     display: flex;
     align-items: center;
     justify-items: center;

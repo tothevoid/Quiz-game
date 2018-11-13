@@ -1,6 +1,5 @@
 @import "~src/globals.scss";
 
-$container-width: 80%;
 $stats-space: 1%;
 $stats-per-line: 5;
 $stats-width: (100%-($stats-space*$stats-per-line*2))/$stats-per-line;
@@ -17,8 +16,7 @@ $answer-horiz-spacing: 7.5%;
 $containter-vert-padding: (100vh-($stats-height+$stats-spacing-bot+$question-height+$answers-height+$time-height+$time-spacing*2))/2;
 
 .wrapper{
-    width: $container-width;
-    padding: $containter-vert-padding (100%-$container-width)/2;
+    @include container($containter-vert-padding);
     .answering-stats{
         display: flex;
         flex-wrap: wrap;
@@ -33,13 +31,13 @@ $containter-vert-padding: (100vh-($stats-height+$stats-spacing-bot+$question-hei
             height: 2.5vh;
         }
         .notAnswered{
-            background-color: white;
+            background-color: $third-clr;
         }
         .correct{
-            background-color: #23C528;
+            background-color: $green;
         }
         .incorrect{
-            background-color: #D52828;
+            background-color: $red;
         }
     }
     .question{
@@ -67,7 +65,7 @@ $containter-vert-padding: (100vh-($stats-height+$stats-spacing-bot+$question-hei
             border-radius: 5px;
             height: 100%;
             width: 100%;
-            background: #D52828;
+            background: $red;
             transition: 0.1s;
         }
     }
@@ -100,11 +98,11 @@ $containter-vert-padding: (100vh-($stats-height+$stats-spacing-bot+$question-hei
             }
         }
         .answer-correct{
-            background: #23C528 !important;
+            background: $green !important;
             color:$third-clr;
         }
         .answer-incorrect{
-            background: #D52828 !important;
+            background: $red !important;
             color:$third-clr;
         }
     }

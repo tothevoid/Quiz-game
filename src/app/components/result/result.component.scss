@@ -1,15 +1,15 @@
 @import "~src/globals.scss";
 
-$container-width: 80%;
 $bottom-btns-width: 45%;
+$result-height: 45vh;
 
 .wrapper{
-    padding: 0 (100-$container-width)/2;
-    width: $container-width;
+    @include container();
+    padding-top: 10vh;
     .result{
-        margin: 10vh 0;
+        margin-bottom: 10vh;
         width: 100%;
-        height: 45vh;
+        height: $result-height;
         text-align: center;
         box-shadow: 0 0 0 5px $main-clr;
         background: $third-clr;
@@ -38,7 +38,6 @@ $bottom-btns-width: 45%;
             border-radius: 4px;
             box-shadow: 0 0 0 4px $main-clr;
             border: none;
-            // background: $third-clr;   
             background: $main-clr;
             height: 10vh;
             &:hover, &:focus, &:active{
