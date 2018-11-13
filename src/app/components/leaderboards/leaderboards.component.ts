@@ -1,23 +1,22 @@
 import { Component, Inject } from '@angular/core';
-import { LeaderboardsService, User } from './leaderboards.service';
 import { environment } from 'src/environments/environment';
+import { User } from './leaderboards.model'
+import { HttpService } from '../../http.service'
 
 @Component({
     selector: 'leaderboards',
     templateUrl: './leaderboards.component.html',
     styleUrls: ['./leaderboards.component.scss'],
-    providers: [LeaderboardsService]
+    providers: [HttpService]
 })
 
 
 export class LeaderboardsComponent{
-
-    public users: User[] = [];
-
+    users: User[] = [];
     imagesUrl: string = environment.apiUrl + 'avatars/'
 
-    constructor(private service: LeaderboardsService){
-        service.getUsers().subscribe(result=>{
+    constructor(private service: HttpService){
+        service.getAll<User>('get_users').subscribe(result=>{
             this.users = result as User[];
         });
     }

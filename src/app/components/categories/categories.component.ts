@@ -1,31 +1,23 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {CategoriesService, Category} from './categories.service'
+import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-
-declare var device;
-
+import { HttpService } from '../../http.service'
+import { Category } from './categories.model'
 @Component({
   selector: 'categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
-  providers: [CategoriesService]
+  providers: [HttpService]
 })
 
 export class CategoriesComponent implements OnInit {
-  title = 'Категории';
-  public BaseUrl: string;
-  public Categories: Category[] = [];
-  public Service: CategoriesService;
-  public url: String
+  Categories: Category[] = [];
+  ImgUrl: String = environment.apiUrl+'categories/'
 
-  constructor(private service: CategoriesService) {
-    this.Service = service
-    this.url = environment.apiUrl+'categories/'
-  }
+  constructor(private service: HttpService) {}
 
   ngOnInit() { 
-    this.Service.getAllCategories().subscribe(categories=>{
-      this.Categories = categories as Category[];     
+    this.service.getAll<Category>('get_categories').subscribe(categories=>{
+      this.Categories = categories as Category[]
     })
   };
   

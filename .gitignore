@@ -36,3 +36,4 @@ Thumbs.db
 # Server
 server/node_modules
 server/config
+server/images/avatars/*.jpg

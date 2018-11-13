@@ -1,23 +1,22 @@
 import { Component } from '@angular/core';
-import { StartService, UserData } from '../start/start.service';
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router'
+import { UserData } from './start.model'
+import { HttpService } from '../../http.service'
 
-declare let device: any;
 declare let navigator: any;
 declare var Camera: any;
 @Component({
   selector: 'start',
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
-  providers: [StartService]
+  providers: [HttpService]
 })
-
 
 export class StartComponent{
   public data: UserData;
  
-  constructor(private service: StartService, private router: Router, private route:ActivatedRoute) {
+  constructor(private service: HttpService, private router: Router, private route:ActivatedRoute) {
     this.data = {
       imagePath: "assets/avatar.svg",
       name: "",
@@ -42,11 +41,10 @@ export class StartComponent{
   }
 
   public onSubmit(){
-    this.service.createUser(this.data).subscribe(item=>{
+    this.service.post('create_user',this.data).subscribe(item=>{
       var id = item as string;
-      console.log(id)
       localStorage.setItem('id',id);
       this.router.navigate(['main-menu'])
-  })
+    })
   }
 }
