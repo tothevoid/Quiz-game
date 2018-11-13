@@ -7,7 +7,7 @@
         <div class="user" *ngFor="let user of users; let i = index">
             <div class="place">{{i+1}}</div>
             <div class="avatar">
-                <img [src]="user.img=='' ? 'assets/avatar.svg' : user.img"/>
+                <img [src]="user.img=='' ? 'assets/avatar.svg' : imagesUrl+user.img"/>
             </div>
             <div class="nick">{{user.name}}</div>
             <div class="games">{{user.games_count}}</div>

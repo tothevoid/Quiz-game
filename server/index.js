@@ -53,7 +53,7 @@ app.post('/api/create_user/', bodyParser.json(), (req, res) => {
 
     imgLink = ''
     if (avatar.startsWith('data:image')){
-        imgLink = "images/"+guid+".jpg";
+        imgLink = "images/avatars/"+guid+".jpg";
         var base64Data = avatar.replace("data:image/jpeg;base64,", "");
         require("fs").writeFile(imgLink, base64Data, 'base64', function(err) {
           console.log(err);
@@ -63,7 +63,7 @@ app.post('/api/create_user/', bodyParser.json(), (req, res) => {
     models.user.create({
         id: guid,
         name: username,
-        img: imgLink
+        img: guid + ".jpg"
     }).then(function (){
         console.log("Sucessfull added: "+ guid)
         res.send({id:guid});

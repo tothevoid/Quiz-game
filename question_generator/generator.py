@@ -2,17 +2,37 @@ import pandas as pd
 import os
 import io
 import json
+import shutil
 from pathlib2 import Path
 
 names = ['20181024210700-category','20181024234751-question','20181101215418-answer']
 
-template_dir = Path(__file__).resolve().parent
-output_dir = Path(__file__).resolve().parent / '..' / 'server' / 'seeders'
+root_dir = Path(__file__).resolve().parent
+server_dir = Path(__file__).resolve().parent / '..' / 'server'
 
 def create_categories(values):
     categories = list()
+    images = dict()
+    save_dir = server_dir/'images'/'categories'
+    
+    for filename in os.listdir(root_dir/'images'):
+        parts = filename.split('.')
+        if len(parts)!=2:
+            Exception()
+        images[parts[0]] = parts[1]
+    
+    if len(images)!=0 and not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+   
     for idx,item in enumerate(values):
-        category = {'id': idx+1, 'name':item, 'img':''}
+        correct_id = idx+1
+        extension = images.get(item, None)
+        new_name=''
+        if extension is not None:
+            new_name = str(correct_id)+'.'+extension
+            old_name = str(item)+'.'+extension
+            shutil.copy2(root_dir/'images'/old_name, save_dir/new_name)  
+        category = {'id': correct_id, 'name':item, 'img':new_name}
         categories.append(category)
     file_replace(names[0], categories)
 
@@ -33,14 +53,14 @@ def create_questions(df, categories):
 
 def file_replace(file, list_dict):
     text = json.dumps(list_dict, ensure_ascii=False, indent=2)
-    with open(template_dir/(file+'.template'),mode = 'r',encoding='utf-8') as old_file:
+    with open(root_dir/(file+'.template'),mode = 'r',encoding='utf-8') as old_file:
         data = old_file.read()
     new_data = data.replace('[json]', text)
-    with open(output_dir/(file+'.js'), mode ='w', encoding='utf-8') as output:
+    with open(server_dir/'seeders'/(file+'.js'), mode ='w', encoding='utf-8') as output:
         output.write(new_data)
 
 
-df = pd.read_csv(template_dir/'questions.csv', ';', encoding='utf-8')
+df = pd.read_csv(root_dir/'questions.csv', ';', encoding='utf-8')
 categories = dict()
 for idx,item in enumerate(set(df.ix[:,0].values)):
     categories[item] = idx+1

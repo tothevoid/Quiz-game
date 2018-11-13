@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { LeaderboardsService, User } from './leaderboards.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'leaderboards',
@@ -12,6 +13,8 @@ import { LeaderboardsService, User } from './leaderboards.service';
 export class LeaderboardsComponent{
 
     public users: User[] = [];
+
+    imagesUrl: string = environment.apiUrl + 'avatars/'
 
     constructor(private service: LeaderboardsService){
         service.getUsers().subscribe(result=>{

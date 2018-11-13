@@ -11,9 +11,10 @@ export interface User{
 
 @Injectable()
 export class LeaderboardsService{
-    constructor(private http: HttpClient) { }
-
     url: string = environment.apiUrl + "api/get_users";
+
+    constructor(private http: HttpClient) { 
+    }
 
     getUsers(){
         return this.http.get<User[]>(this.url);

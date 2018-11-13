@@ -20,7 +20,7 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private service: CategoriesService) {
     this.Service = service
-    this.url = environment.apiUrl
+    this.url = environment.apiUrl+'categories/'
   }
 
   ngOnInit() { 
