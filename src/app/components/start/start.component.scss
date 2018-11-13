@@ -1,6 +1,4 @@
-$font: 'Marmelad', sans-serif;
-$back-clr: white;
-$main-clr: #007780;
+@import "~src/globals.scss";
 
 $img-size: 60vw;
 $elements-width: 70%;
@@ -23,9 +21,8 @@ html{
     .photo{
         height: $img-size;
         width: $img-size;
-        border: 3px #0462A9;
         border-radius: $img-size/2;
-        box-shadow: 1px 1px 2px 2px gray;
+        box-shadow: 0 0 0 2px $main-clr;
         margin: 10% 0;
         position: relative;
         vertical-align: middle;

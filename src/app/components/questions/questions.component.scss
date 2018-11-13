@@ -1,29 +1,36 @@
-$main-clr: #007780;
-$second-clr: #04DCFF;
-$third-clr: white;
-$font: 'Marmelad', sans-serif;
+@import "~src/globals.scss";
 
 $container-width: 80%;
 $stats-space: 1%;
 $stats-per-line: 5;
 $stats-width: (100%-($stats-space*$stats-per-line*2))/$stats-per-line;
-$question-width: 92%;
+
+$stats-height: 2.5vh;
+$stats-spacing-bot: 2.5vh;
+$question-height: 40vh;
+$answers-height: 40vh;
+$time-height: 2.5vh;
+$time-spacing: 2.5vh;
+$answer-vert-spacing: 7.5%;
+$answer-horiz-spacing: 7.5%;
+
+$containter-vert-padding: (100vh-($stats-height+$stats-spacing-bot+$question-height+$answers-height+$time-height+$time-spacing*2))/2;
 
 .wrapper{
     width: $container-width;
-    padding: 0 (100%-$container-width)/2;
+    padding: $containter-vert-padding (100%-$container-width)/2;
     .answering-stats{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        height: 10vh;
+        margin-bottom: $stats-spacing-bot;
+        height: $stats-height;
         .stat{
             box-shadow: 0 0 0px 1px $main-clr;
             border-radius: 5px;
             width: $stats-width;
-            margin: 1vh $stats-space;
-            height: 3vh;
+            margin: 0 $stats-space;
+            height: 2.5vh;
         }
         .notAnswered{
             background-color: white;
@@ -36,19 +43,37 @@ $question-width: 92%;
         }
     }
     .question{
-        width: $question-width;
-        margin: 0 (100-$question-width)/2;
-        height: 40vh;
+        height: $question-height;
         font-family: $font;
         color: $main-clr;
-        box-shadow: 0 0 0 7.5px $main-clr;
+        box-shadow: 0 0 0 5px $main-clr;
         background: $third-clr;
         border-radius: 5px;
-        margin-bottom: 2.5vh;
+        div{
+            width: 90%;
+            margin: 0 5%;
+        }
+    }
+    .time{
+        width: 100%;
+        border-radius: 5px;
+        height: $time-height;
+        box-shadow: 0 0 0 2.5px $main-clr;
+        margin: $time-spacing 0;
+        background: transparent;
+        overflow: hidden;
+        .time-bar{
+            position: relative;
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+            background: #D52828;
+            transition: 0.1s;
+        }
     }
     .answers{
         width: 100%;
-        height: 40vh;
+        height: $answers-height;
         display: flex;
         flex-wrap: wrap;
         .answer{
@@ -56,44 +81,31 @@ $question-width: 92%;
             font-family: $font;
             border-radius: 4px;
             border: none;
-            box-shadow: 0 0 0 6px $main-clr;
+            box-shadow: 0 0 0 5px $main-clr;
             background: $third-clr;
             word-wrap: break-word;    
-            width: 42%;
-            height: 42%;
-            margin: 0 4% 6% 4%;
+            width: 50% - $answer-vert-spacing/2;
+            height: 50% - $answer-horiz-spacing/2;
             &:hover, &:focus, &:active{
                 outline: none
+            }
+            &:nth-child(odd){
+                margin-right: $answer-horiz-spacing/2;
+            }
+            &:nth-child(even){
+                margin-left: $answer-horiz-spacing/2;
+            }
+            &:nth-child(1),&:nth-child(2){
+                margin-bottom: $answer-vert-spacing;
             }
         }
         .answer-correct{
             background: #23C528 !important;
-            color:white;
+            color:$third-clr;
         }
         .answer-incorrect{
             background: #D52828 !important;
-            color:white;
-        }
-    }
-    .time{
-        width: 100%;
-        border-radius: 10px;
-        height: 2.5vh;
-        border: 2.5px $main-clr solid;
-        margin-bottom: 2.5vh;
-        position: relative;
-        background: transparent;
-        .time-bar{
-            top: -2.5px;
-            left: -2.5px;
-            z-index: 0;
-            position: absolute;
-            border-radius: 10px;
-            height: 100%;
-            width: 100%;
-            background: #D52828;
-            border: 2.5px $main-clr solid;
-            transition: 0.1s;
+            color:$third-clr;
         }
     }
 }

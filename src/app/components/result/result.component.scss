@@ -1,7 +1,4 @@
-$main-clr: #007780;
-$second-clr: #04DCFF;
-$third-clr: white;
-$font: 'Marmelad', sans-serif;
+@import "~src/globals.scss";
 
 $container-width: 80%;
 $bottom-btns-width: 45%;

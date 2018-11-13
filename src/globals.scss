@@ -1,10 +1,15 @@
 $main-clr: #007780;
+$second-clr: #04DCFF;
+$third-clr: white;
+$font: 'Marmelad', sans-serif;
+
 $header-height: 10vh;
 
 @mixin header(){
     height: $header-height/2;
     width: 100%;
     padding: $header-height/4 0;
+    font-family: $font;
     color: $main-clr;
     font-size: 25px;
     text-align: center;
