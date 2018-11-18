@@ -12,6 +12,7 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { ResultComponent } from './components/result/result.component'
 import { MenuComponent } from './components/main-menu/main-menu.component'
 import { LeaderboardsComponent } from './components/leaderboards/leaderboards.component'
+import { HashLocationStrategy, LocationStrategy} from '@angular/common'
 
 @NgModule({
   declarations:[
@@ -32,7 +33,8 @@ import { LeaderboardsComponent } from './components/leaderboards/leaderboards.co
     FormsModule
   ],
   providers: [
-    { provide: 'BASE_URL', useFactory: getBaseUrl }
+    { provide: 'BASE_URL', useFactory: getBaseUrl },
+    { provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

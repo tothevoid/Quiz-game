@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Russo+One');
-@import url('https://fonts.googleapis.com/css?family=Marmelad');
+@font-face {
+    font-family: Marmelad;
+    src: url(./assets/fonts/Marmelad-Regular.ttf);
+}
 
 $main-clr: #007780;
 $sec-clr: white;

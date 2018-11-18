@@ -9,6 +9,7 @@
 * npm install -g sequelize-cli
 * npm install -g @angular/cli
 * change apiUrl in `src/enviroments/enviroments.ts`
+* change Content-Security-Policy tag in `src/index.html` by commented pattern
 * [configure](http://docs.sequelizejs.com/manual/tutorial/migrations.html#configuration) db connection at `server/config/config.json`
 * npm update in [`root`, `root/cordova`, `root/server`]
 
