@@ -23,14 +23,15 @@ body{
 }
 
 .btn{
-    background: $sec-clr;
+    background: $main-clr;
     font-family: $font;
-    font-size: 20px;
+    width: 100%;
+    font-size: 28px;
     border-radius: 10px;
     height: 55px;
-    color:$main-clr;
+    color:$sec-clr;
     border: 3px solid $main-clr;
-    font-weight: 600;
+    font-weight: 500;
     &:hover, &:focus, &:active{
         outline: none
     }

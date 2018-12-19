@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="header">
         <a routerLink="/main-menu" routerLinkActive="active" class="back">&lt;</a>
-        Играть одному
+        Играть
     </div>
     <div class="categories">
         <a *ngFor="let category of Categories" [routerLink]="['/questions',category.id]">

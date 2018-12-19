@@ -12,6 +12,7 @@ $button-height: 10vh;
     flex-wrap: wrap;
     flex-direction: column;
     .buttons{
+        width: 90%;
         .btn-menu{
             height: $button-height;
             width: 100%;

@@ -5,7 +5,7 @@ $result-height: 45vh;
 
 .wrapper{
     @include container();
-    padding-top: 10vh;
+    padding-top: 5vh;
     .result{
         margin-bottom: 10vh;
         width: 100%;
