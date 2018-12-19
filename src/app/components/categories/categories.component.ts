@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpService } from '../../http.service'
 import { Category } from './categories.model'
+
 @Component({
   selector: 'categories',
   templateUrl: './categories.component.html',

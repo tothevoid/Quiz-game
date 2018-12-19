@@ -15,11 +15,11 @@ const routes: Routes = [
   { path: 'start',  component: (() => {
     return localStorage.getItem('id')!=null ? MenuComponent : StartComponent;
   })()},
-  { path: 'main-menu', component: MenuComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'questions/:category', component: QuestionsComponent },
-  { path: 'result', component: ResultComponent },
-  { path: 'leaderboards', component: LeaderboardsComponent },
+  { path: 'main-menu', component: MenuComponent, data:{animation:'MenuPage'} },
+  { path: 'categories', component: CategoriesComponent, data:{animation:'CategoriesPage'} },
+  { path: 'questions/:category', component: QuestionsComponent, data:{animation:'QuestionsPage'} },
+  { path: 'result', component: ResultComponent, data:{animation:'ResultPage'} },
+  { path: 'leaderboards', component: LeaderboardsComponent, data:{animation:'LeaderboardsPage'} },
   { path: '**', redirectTo: 'start' },
 ]
 
