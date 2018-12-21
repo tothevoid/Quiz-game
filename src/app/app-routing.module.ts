@@ -11,7 +11,7 @@ const routes: Routes = [
   // production
   // { path: '', redirectTo: 'start', pathMatch: 'full'},
 
-  { path: '', redirectTo: 'main-menu', pathMatch: 'full'},
+  { path: '', redirectTo: 'start', pathMatch: 'full'},
   { path: 'start',  component: (() => {
     return localStorage.getItem('id')!=null ? MenuComponent : StartComponent;
   })()},
