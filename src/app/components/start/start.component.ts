@@ -20,7 +20,7 @@ export class StartComponent{
     this.data = {
       imagePath: "assets/avatar.svg",
       name: "",
-    }
+    }   
   }
 
   public success(data){
@@ -44,6 +44,8 @@ export class StartComponent{
     this.service.post('create_user',this.data).subscribe(item=>{
       var id = item as string;
       localStorage.setItem('id',id);
+      this.router.navigate(['main-menu'])
+    }, error => {
       this.router.navigate(['main-menu'])
     })
   }
