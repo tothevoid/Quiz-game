@@ -44,6 +44,24 @@ app.route('/api/get_questions/:category').get((req,res) => {
     }); 
 })
 
+app.route('/api/get_stat_by_id/:pk').get((req,res) => {    
+    var id = req.params.pk;
+
+    models.user.findByPk(req.params.pk).then(function (user) {
+        res.send(user)
+    }); 
+})
+
+app.post('/api/send_stats/', bodyParser.json(), (req, res) => {
+    if(!req.body) return response.sendStatus(400);
+    
+    var guid = req.body.id;
+    var games_count = req.body.games_count;
+    var correct_answers = req.body.correct_answers;
+
+    models.user.update(req.body, {where: {id: req.body.id}});
+})
+
 app.post('/api/create_user/', bodyParser.json(), (req, res) => {
     if(!req.body) return response.sendStatus(400);
     

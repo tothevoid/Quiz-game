@@ -41,11 +41,12 @@ export class StartComponent{
   }
 
   public onSubmit(){
-    this.service.post('create_user',this.data).subscribe(item=>{
-      var id = item as string;
-      localStorage.setItem('id',id);
+    this.service.post('create_user',this.data).subscribe(response => {
+      var id = Object.values(response);
+      localStorage.setItem('id', id[0]);
       this.router.navigate(['main-menu'])
     }, error => {
+      console.log("connection faild")
       this.router.navigate(['main-menu'])
     })
   }
